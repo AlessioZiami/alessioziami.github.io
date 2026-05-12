@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alessio Ziami · Software & Game Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0D1117;
+  --bg2:#161B22;
+  --bg3:#21262D;
+  --border:#30363D;
+  --text:#E6EDF3;
+  --muted:#7D8590;
+  --green:#3FB950;
+  --green-dim:#1A4731;
+  --blue:#58A6FF;
+  --blue-dim:#1B3A5C;
+  --purple:#BC8CFF;
+  --purple-dim:#2D1F4E;
+  --amber:#E3B341;
+  --accent:#238636;
+}
+html,body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.6;scroll-behavior:smooth}
+
+/* NAV */
+nav{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1rem 3rem;
+  border-bottom:1px solid var(--border);
+  background:rgba(13,17,23,0.95);
+  position:sticky;top:0;z-index:100;
+  backdrop-filter:blur(8px);
+}
+.logo{font-family:'JetBrains Mono',monospace;font-size:1rem;color:var(--green);text-decoration:none;letter-spacing:0.02em}
+.logo span{color:var(--muted)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:0.8rem;color:var(--muted);text-decoration:none;transition:color 0.2s;letter-spacing:0.03em}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{
+  font-size:0.78rem;font-family:'Inter',sans-serif;
+  background:var(--accent);color:#fff;
+  border:1px solid #2EA043;padding:0.45rem 1.25rem;
+  cursor:pointer;border-radius:6px;transition:all 0.2s;
+}
+.nav-cta:hover{background:#2EA043}
+
+/* HERO */
+.hero{
+  padding:6rem 3rem 4rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:4rem;
+  align-items:center;min-height:85vh;
+}
+.terminal{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:10px;overflow:hidden;font-family:'JetBrains Mono',monospace;
+}
+.term-bar{
+  background:var(--bg3);padding:0.6rem 1rem;
+  display:flex;align-items:center;gap:0.5rem;
+  border-bottom:1px solid var(--border);
+}
+.dot{width:12px;height:12px;border-radius:50%}
+.dot.r{background:#FF5F56}.dot.y{background:#FFBD2E}.dot.g{background:#27C93F}
+.term-title{font-size:0.7rem;color:var(--muted);margin-left:auto;margin-right:auto}
+.term-body{padding:1.5rem;font-size:0.82rem;line-height:2}
+.t-muted{color:var(--muted)}
+.t-green{color:var(--green)}
+.t-blue{color:var(--blue)}
+.t-purple{color:var(--purple)}
+.t-amber{color:var(--amber)}
+.t-white{color:var(--text)}
+.cursor{display:inline-block;width:8px;height:1.1em;background:var(--green);vertical-align:text-bottom;animation:blink 1s step-end infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+.hero-badge{
+  display:inline-flex;align-items:center;gap:0.4rem;
+  background:var(--bg2);border:1px solid var(--border);
+  font-size:0.72rem;color:var(--muted);
+  padding:0.3rem 0.85rem;border-radius:20px;
+  margin-bottom:1.5rem;font-family:'JetBrains Mono',monospace;
+}
+.hero-badge .dot-live{width:6px;height:6px;border-radius:50%;background:var(--amber);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.hero h1{
+  font-size:clamp(2.4rem,5vw,4rem);font-weight:600;
+  line-height:1.1;margin-bottom:1.5rem;letter-spacing:-0.02em;
+  color:var(--text);
+}
+.hero h1 .highlight{color:var(--green)}
+.hero h1 .highlight2{color:var(--blue)}
+.hero-sub{font-size:0.9rem;color:var(--muted);line-height:1.8;max-width:420px;margin-bottom:2.5rem}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{
+  background:var(--accent);color:#fff;
+  padding:0.7rem 1.75rem;font-size:0.8rem;
+  border:1px solid #2EA043;border-radius:6px;
+  cursor:pointer;transition:all 0.2s;font-family:'Inter',sans-serif;
+  text-decoration:none;display:inline-block;
+}
+.btn-primary:hover{background:#2EA043}
+.btn-outline{
+  background:transparent;color:var(--text);
+  padding:0.7rem 1.75rem;font-size:0.8rem;
+  border:1px solid var(--border);border-radius:6px;
+  cursor:pointer;transition:all 0.2s;font-family:'Inter',sans-serif;
+  text-decoration:none;display:inline-block;
+}
+.btn-outline:hover{border-color:var(--muted);background:var(--bg2)}
+
+/* LEARNING BANNER */
+.learning-banner{
+  margin:2rem 3rem 0;
+  background:var(--bg2);border:1px solid var(--border);
+  border-left:3px solid var(--amber);
+  border-radius:8px;padding:1rem 1.5rem;
+  display:flex;align-items:center;gap:1rem;
+}
+.banner-icon{font-size:1.2rem}
+.banner-text{font-size:0.82rem;color:var(--muted);line-height:1.6}
+.banner-text strong{color:var(--amber);font-weight:500}
+
+/* ABOUT */
+.about{padding:5rem 3rem;border-top:1px solid var(--border)}
+.section-tag{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--green);margin-bottom:0.75rem;letter-spacing:0.05em}
+.section-title{font-size:clamp(1.75rem,3vw,2.5rem);font-weight:600;color:var(--text);margin-bottom:2.5rem;letter-spacing:-0.02em}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
+.about-text p{font-size:0.88rem;color:var(--muted);line-height:1.9;margin-bottom:1rem}
+
+/* SKILL TAGS */
+.skill-groups{display:flex;flex-direction:column;gap:1.25rem;margin-top:0.5rem}
+.skill-group{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1rem 1.25rem}
+.skill-group-label{
+  font-family:'JetBrains Mono',monospace;font-size:0.65rem;
+  color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;
+  margin-bottom:0.75rem;
+}
+.skill-group-label.solid{color:var(--green)}
+.skill-group-label.learning{color:var(--amber)}
+.skill-group-label.next{color:var(--blue)}
+.pills{display:flex;flex-wrap:wrap;gap:0.4rem}
+.pill{
+  font-family:'JetBrains Mono',monospace;font-size:0.7rem;
+  padding:0.25rem 0.65rem;border-radius:4px;
+}
+.pill.solid{background:rgba(63,185,80,0.1);border:1px solid var(--green-dim);color:var(--green)}
+.pill.learning{background:rgba(227,179,65,0.1);border:1px solid rgba(227,179,65,0.3);color:var(--amber)}
+.pill.next{background:var(--blue-dim);border:1px solid rgba(88,166,255,0.2);color:var(--blue)}
+
+/* PROJECTS */
+.projects{padding:5rem 3rem;border-top:1px solid var(--border)}
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.project-card{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:8px;overflow:hidden;
+  transition:border-color 0.2s,transform 0.2s;
+}
+.project-card:hover{border-color:var(--green);transform:translateY(-3px)}
+.project-card.wip{border-style:dashed}
+.project-card.wip:hover{border-color:var(--amber)}
+.project-header{padding:1.25rem 1.25rem 0.75rem;display:flex;justify-content:space-between;align-items:flex-start}
+.proj-icon{font-size:1.5rem}
+.proj-links{display:flex;gap:0.5rem}
+.proj-link{
+  color:var(--muted);text-decoration:none;font-size:0.72rem;
+  background:var(--bg3);border:1px solid var(--border);
+  padding:0.2rem 0.5rem;border-radius:4px;transition:color 0.2s;
+  font-family:'JetBrains Mono',monospace;
+}
+.proj-link:hover{color:var(--text)}
+.proj-status{
+  font-family:'JetBrains Mono',monospace;font-size:0.65rem;
+  padding:0.2rem 0.5rem;border-radius:3px;
+}
+.proj-status.wip{background:rgba(227,179,65,0.1);color:var(--amber);border:1px solid rgba(227,179,65,0.25)}
+.proj-status.done{background:rgba(63,185,80,0.1);color:var(--green);border:1px solid var(--green-dim)}
+.project-body{padding:0 1.25rem 1.25rem}
+.proj-name{font-size:0.92rem;font-weight:600;color:var(--text);margin-bottom:0.4rem}
+.proj-desc{font-size:0.78rem;color:var(--muted);line-height:1.65;margin-bottom:1rem}
+.proj-tags{display:flex;flex-wrap:wrap;gap:0.35rem}
+.proj-tag{
+  font-family:'JetBrains Mono',monospace;font-size:0.65rem;
+  background:var(--blue-dim);color:var(--blue);
+  padding:0.2rem 0.5rem;border-radius:3px;
+}
+.proj-tag.java{background:rgba(188,140,255,0.1);color:var(--purple)}
+
+
+
+/* CONTACT */
+.contact{padding:6rem 3rem;border-top:1px solid var(--border);text-align:center}
+.contact .section-title{margin-bottom:0.75rem}
+.contact-sub{font-size:0.88rem;color:var(--muted);margin-bottom:2.5rem;max-width:500px;margin-left:auto;margin-right:auto}
+.contact-email{
+  display:inline-block;
+  font-family:'JetBrains Mono',monospace;font-size:1.1rem;
+  color:var(--green);text-decoration:none;
+  border:1px solid var(--green-dim);
+  background:rgba(63,185,80,0.05);
+  padding:0.75rem 2rem;border-radius:6px;
+  margin-bottom:2.5rem;transition:all 0.2s;
+}
+.contact-email:hover{background:rgba(63,185,80,0.1)}
+.socials{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.social-btn{
+  display:flex;align-items:center;gap:0.5rem;
+  font-size:0.78rem;color:var(--muted);text-decoration:none;
+  background:var(--bg2);border:1px solid var(--border);
+  padding:0.5rem 1.25rem;border-radius:6px;transition:all 0.2s;
+}
+.social-btn:hover{border-color:var(--muted);color:var(--text)}
+.social-icon{width:16px;height:16px;fill:currentColor}
+
+footer{
+  padding:1.5rem 3rem;border-top:1px solid var(--border);
+  display:flex;justify-content:space-between;
+  font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--muted);
+}
+
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
+.fade-up.visible{opacity:1;transform:none}
+
+@media(max-width:768px){
+  nav{padding:1rem 1.5rem}
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr;padding:3rem 1.5rem;min-height:auto;gap:2rem}
+  .about{padding:3rem 1.5rem}
+  .about-grid{grid-template-columns:1fr;gap:2rem}
+  .projects{padding:3rem 1.5rem}
+  .projects-grid{grid-template-columns:1fr}
+  .roadmap{padding:3rem 1.5rem}
+  .contact{padding:3rem 1.5rem}
+  .learning-banner{margin:1.5rem 1.5rem 0}
+  footer{padding:1.5rem;flex-direction:column;gap:0.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo"><span>~/</span>alessio-ziami</a>
+  <ul class="nav-links">
+    <li><a href="#about">chi sono</a></li>
+    <li><a href="#projects">progetti</a></li>
+    <li><a href="#contact">contatti</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contattami</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-text fade-up">
+    <div class="hero-badge"><span class="dot-live"></span>Studente · In continuo apprendimento</div>
+    <h1>Software<br><span class="highlight2">Developer</span><br><span class="highlight">&amp; Game Dev.</span></h1>
+    <p class="hero-sub">Studente di informatica appassionato di sviluppo software e videogiochi. Sto costruendo le mie prime esperienze con Unity e Java, un progetto alla volta.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">Vedi Progetti</button>
+      <button class="btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contattami</button>
+    </div>
+  </div>
+  <div class="terminal fade-up" style="transition-delay:0.2s">
+    <div class="term-bar">
+      <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+      <span class="term-title">alessio@dev ~ bash</span>
+    </div>
+    <div class="term-body">
+      <div><span class="t-green">➜</span> <span class="t-blue">~</span> <span class="t-white">whoami</span></div>
+      <div class="t-muted">Alessio Ziami — CS Student & Game Dev</div>
+      <div style="margin-top:0.5rem"><span class="t-green">➜</span> <span class="t-blue">~</span> <span class="t-white">cat skills.txt</span></div>
+      <div><span class="t-purple">solid:</span> <span class="t-muted">Java, OOP, algoritmi</span></div>
+      <div><span class="t-amber">learning:</span> <span class="t-muted">Unity, C#, game dev</span></div>
+      <div><span class="t-blue">next:</span> <span class="t-muted">Git avanzato, deploy</span></div>
+      <div style="margin-top:0.5rem"><span class="t-green">➜</span> <span class="t-blue">~</span> <span class="t-white">cat status.txt</span></div>
+      <div><span class="t-amber">◉ </span><span class="t-muted">Primo gioco Unity in sviluppo</span></div>
+      <div><span class="t-green">➜</span> <span class="t-blue">~</span> <span class="cursor"></span></div>
+    </div>
+  </div>
+</section>
+
+<div class="learning-banner fade-up">
+  <span class="banner-icon">📖</span>
+  <p class="banner-text">
+    <strong>Portfolio in costruzione.</strong> Sono all'inizio del mio percorso — qui trovi le basi che ho, i progetti su cui sto lavorando e dove voglio arrivare. Aggiorno questa pagina man mano che cresco.
+  </p>
+</div>
+
+<section class="about" id="about">
+  <p class="section-tag fade-up">// 01 — chi sono</p>
+  <div class="about-grid">
+    <div class="fade-up">
+      <h2 class="section-title">Chi sono.</h2>
+      <p>Sono Alessio Ziami, studente di informatica a Milano e provincie. Mi sono avvicinato alla programmazione con Java e sto esplorando il mondo dello sviluppo di videogiochi con Unity.</p>
+      <p>Non ho ancora esperienza professionale, ma sono preciso, curioso e ho voglia di imparare. Sto costruendo i miei primi progetti per consolidare quello che studio.</p>
+      <p>Cerco feedback su quello che costruisco e opportunità per crescere.</p>
+    </div>
+    <div class="fade-up" style="transition-delay:0.15s">
+      <h3 style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:1.25rem">// stack attuale</h3>
+      <div class="skill-groups">
+        <div class="skill-group">
+          <div class="skill-group-label solid">✓ basi solide</div>
+          <div class="pills">
+            <span class="pill solid">Java</span>
+            <span class="pill solid">OOP</span>
+            <span class="pill solid">Algoritmi</span>
+            <span class="pill solid">HTML/CSS</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label learning">◉ in apprendimento</div>
+          <div class="pills">
+            <span class="pill learning">Unity</span>
+            <span class="pill learning">C#</span>
+            <span class="pill learning">Game Design</span>
+            <span class="pill learning">Git</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label next">→ prossimi obiettivi</div>
+          <div class="pills">
+            <span class="pill next">Database</span>
+            <span class="pill next">Sicurezza Informatica</span>
+            <span class="pill next">Node.js</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="projects" id="projects">
+  <p class="section-tag fade-up">// 02 — progetti</p>
+  <h2 class="section-title fade-up">Progetti.</h2>
+  <div class="projects-grid">
+    <div class="project-card wip fade-up">
+      <div class="project-header">
+        <span class="proj-icon">🎮</span>
+        <span class="proj-status wip">in sviluppo</span>
+      </div>
+      <div class="project-body">
+        <p class="proj-name">Primo Gioco Unity</p>
+        <p class="proj-desc">Platformer 2D in sviluppo. Il mio primo progetto completo con Unity — sto imparando physics, collisioni e game loop mentre lo costruisco.</p>
+        <div class="proj-tags"><span class="proj-tag">Unity</span><span class="proj-tag">C#</span><span class="proj-tag">2D</span></div>
+      </div>
+    </div>
+    <div class="project-card fade-up" style="transition-delay:0.1s">
+      <div class="project-header">
+        <span class="proj-icon">☕</span>
+        <div class="proj-links"><a href="#" class="proj-link">GitHub ↗</a></div>
+      </div>
+      <div class="project-body">
+        <p class="proj-name">Progetto Java</p>
+        <p class="proj-desc">Ho acquisito la sintassi e il corretto funzionamento di Java.</p>
+        <div class="proj-tags"><span class="proj-tag java">Java</span><span class="proj-tag java">OOP</span></div>
+      </div>
+    </div>
+    <div class="project-card wip fade-up" style="transition-delay:0.2s;opacity:0.6">
+      <div class="project-header">
+        <span class="proj-icon">🔜</span>
+        <span class="proj-status wip">prossimamente</span>
+      </div>
+      <div class="project-body">
+        <p class="proj-name">Prossimo Progetto</p>
+        <p class="proj-desc">Sto pianificando il prossimo progetto. Torna a breve — questa pagina si aggiorna man mano che costruisco nuove cose.</p>
+        <div class="proj-tags"><span class="proj-tag">TBD</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <p class="section-tag fade-up" style="text-align:center">// 03 — contatti</p>
+  <h2 class="section-title fade-up">Parliamo.</h2>
+  <p class="contact-sub fade-up">Sono uno studente che sta costruendo il suo percorso. Se hai feedback sui miei progetti, vuoi collaborare o semplicemente conoscermi, scrivimi.</p>
+  <a href="mailto:info@alessioziami.dev" class="contact-email fade-up">info@alessioziami.dev</a>
+  <div class="socials fade-up">
+    <a href="https://github.com/AlessioZiami" class="social-btn">
+      <svg class="social-icon" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+      GitHub
+    </a>
+    <a href="https://it.linkedin.com/in/alessio-ziami-67834a3b7" class="social-btn">
+      <svg class="social-icon" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      LinkedIn
+    </a>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Alessio Ziami</span>
+  <span>Milano e provincie, IT · Studente di Informatica & Game Developer</span>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') });
+}, {threshold:0.08});
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
